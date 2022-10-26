@@ -2,16 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { apiPath as allApiPath } from '../apiPath/apiPath';
 import { toast } from "react-toastify";
-// type actionType = {
-//   cb?: (resData) => void;
-//   method?: string;
-//   payload?: any;
-//   urlObjKey: string;
-//   params?: {};
-//   isToast?: boolean;
-//   successMessage?: string;
-//   errorMessage?: string;
-// };
+
 export const useAxiosRequest = (initData) => {
   const [reqResponse, setReqResponse] = useState({
     error: '',
@@ -90,7 +81,7 @@ export const useAxiosRequest = (initData) => {
   return { apiAction, resData, isLoading, error, success, resetData };
 };
 
-// ========example =============
+// ======== example ========
 // loginApiCall.apiAction({
 //   urlObjKey: 'login',
 //   method: 'POST',
@@ -99,7 +90,7 @@ export const useAxiosRequest = (initData) => {
 //     username: 'taufiqur.anik.bd@gmail.com',
 //   },
 //   isToast: true,
-//   modifiedRespons: (data) => {
-//     data.email = 'jahed';
+//   modifiedResponse: (data) => {
+//     data.email = 'Taufiqur';
 //   },
 // });
