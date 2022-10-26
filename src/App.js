@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
+import { useAxiosRequest } from "./common/hooks/useAxiosRequest";
 
 function App() {
+  const postsApi = useAxiosRequest([]);
+  // Functions
+  const SalesData = () => {
+    postsApi.apiAction({
+      urlObjKey: "postsApi",
+    });
+  };
+
+  useEffect(() => {
+    SalesData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  // console.log(postsApi?.resData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <p>Learn React</p>
+        {postsApi?.resData.map((item, index) => {
+          return (
+            <div key={index}>
+              <li>{item?.title}</li>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
