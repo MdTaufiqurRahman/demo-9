@@ -1,4 +1,4 @@
 export const apiPath = {
- postsApi: 'https://jsonplaceholder.typicode.com/posts',
+ postsApi: 'https://guarded-temple-31920.herokuapp.com/api/products',
   // MachineTypePagination: '/rmg/Master/MachineTypePagination?viewOrder=desc',
 };
