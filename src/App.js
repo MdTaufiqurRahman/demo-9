@@ -26,12 +26,14 @@ function App() {
   };
   return (
     <>
-      <NavBar size={cart?.length} />
-      <Main handleClick={handleClick} />
-      <Cart cart={cart} setCart={setCart}/>
-      {
-        warnings && <div className="warning">Already Added This Product</div>
-      }
+      <NavBar size={cart?.length} setShow={setShow}/>
+      {show ? (
+        <Main handleClick={handleClick} />
+      ) : (
+        <Cart cart={cart} setCart={setCart} />
+      )}
+
+      {warnings && <div className="warning">Already Added This Product</div>}
     </>
   );
 }
